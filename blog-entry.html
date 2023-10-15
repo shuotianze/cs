@@ -62,18 +62,14 @@
               writable: false,
             });
           }
-// 获取当前页面的URL
-var url = window.location.href;
-
 // 解析URL中的参数
-var params = new URLSearchParams(url.split('?')[1]);
-
-// 获取指定参数的值
-var urlParam = params.get('url');
+var urlParams = new URLSearchParams(window.location.search);
+var urlParam = urlParams.get('url');
 
 // 获取需要替换的元素
 var targetElement = document.querySelector('.mod-external-link-address');
 
 // 替换链接
 targetElement.innerHTML = urlParam;
+
     </script></body></html>
