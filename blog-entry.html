@@ -71,9 +71,9 @@ var params = new URLSearchParams(url.split('?')[1]);
 // 获取指定参数的值
 var urlParam = params.get('url');
 
-// 获取需要替换的<div>元素
-var externalLink = document.querySelector(".mod-external-link-address");
+// 获取需要替换的元素
+var targetElement = document.querySelector('.mod-external-link-address');
 
 // 替换链接
-externalLink.innerHTML = urlParam
+targetElement.innerHTML = urlParam;
     </script></body></html>
