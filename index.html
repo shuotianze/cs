@@ -1,27 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Index Page</title>
+    <title>URL参数示例</title>
 </head>
 <body>
-  <h1>Index Page</h1>
-  
-  <script>
-    function getUrlParam(param) {
-      const queryString = window.location.search;
-      const urlParams = new URLSearchParams(queryString);
-      return urlParams.get(param);
-    }
+    <div id="url-container"></div>
 
-    function replaceUrlParamInPage() {
-      const urlParam = getUrlParam('url');
-      if (urlParam) {
-        // 跳转到page.html，并将URL参数作为查询参数传递
-        window.location.href = `page.html?url=${urlParam}`;
-      }
-    }
+    <script>
+        // 获取url参数的值
+        function getUrlParam(name) {
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            return urlParams.get(name);
+        }
 
-    window.addEventListener('DOMContentLoaded', replaceUrlParamInPage);
-  </script>
+        // 获取url参数中的链接
+        const url = getUrlParam('url');
+
+        // 创建一个链接元素
+        const linkElement = document.createElement('a');
+        linkElement.href = url;
+        linkElement.textContent = url;
+
+        // 将链接元素插入到页面中的容器中
+        const urlContainer = document.getElementById('url-container');
+        urlContainer.appendChild(linkElement);
+    </script>
 </body>
 </html>
