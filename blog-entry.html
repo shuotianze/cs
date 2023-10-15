@@ -62,16 +62,18 @@
               writable: false,
             });
           }
-// 获取url中的参数
-const urlParams = new URLSearchParams(window.location.search);
-const url = urlParams.get('url');
+// 获取当前页面的URL
+var url = window.location.href;
 
-// 修改链接
-if (url) {
-  const linkElement = document.querySelector('a[href="https://0oo0.cc"]');
-  if (linkElement) {
-    linkElement.href = url;
-  }
-}
+// 解析URL中的参数
+var params = new URLSearchParams(url.split('?')[1]);
 
+// 获取指定参数的值
+var urlParam = params.get('url');
+
+// 获取需要替换的<div>元素
+var externalLink = document.querySelector(".mod-external-link-address");
+
+// 替换链接
+externalLink.innerHTML = urlParam
     </script></body></html>
